@@ -1,139 +1,78 @@
 # Gym Management System
 
-A comprehensive web application for managing gym operations, including classes, reservations, and user management.
+Sistema integral de gestión para gimnasios que automatiza la administración de socios, entrenadores, pagos y seguimiento de progreso.
 
-## Features
+## 🚀 Características Principales
 
-- **User Authentication:** Secure login/register system with JWT tokens
-- **Role-based Access Control:** Different permissions for admin, teacher, and student roles
-- **Class Management:** Create, view, update, and delete gym classes
-- **Reservation System:** Book and manage class reservations
-- **Admin Dashboard:** Manage users, classes, and system settings
+### Para Socios
+- Registro y autogestión de cuenta
+- Reserva de turnos y clases
+- Seguimiento de rutinas y progreso
+- Pagos en línea
+- Notificaciones y recordatorios
 
-## Tech Stack
+### Para Entrenadores
+- Gestión de clientes asignados
+- Creación y seguimiento de rutinas
+- Control de asistencia
+- Comunicación con socios
 
-### Backend
-- Node.js with Express
-- TypeScript
-- PostgreSQL with Prisma ORM
-- JWT authentication with refresh tokens
+### Para Administradores
+- Gestión completa de socios y membresías
+- Facturación y cobranzas
+- Reportes y análisis
+- Gestión del personal
+
+## 🛠️ Tecnologías
 
 ### Frontend
-- React with TypeScript
-- React Router for navigation
-- TailwindCSS for styling
-- Axios for API requests
+- SvelteKit (TypeScript)
+- Tailwind CSS
+- PWA habilitado
 
-## Project Structure
-
-```
-gym/
-├── backend/
-│   ├── prisma/
-│   │   └── schema.prisma       # Database schema
-│   ├── src/
-│   │   ├── controllers/        # Request handlers
-│   │   ├── middleware/         # Express middleware
-│   │   ├── models/             # Prisma models
-│   │   ├── routes/             # API routes
-│   │   ├── services/           # Business logic
-│   │   └── utils/              # Utility functions
-│   └── package.json
-├── frontend/
-│   ├── public/                 # Static assets
-│   ├── src/
-│   │   ├── components/         # Reusable UI components
-│   │   ├── contexts/           # React context providers
-│   │   ├── hooks/              # Custom React hooks
-│   │   ├── pages/              # Page components
-│   │   ├── services/           # API service functions
-│   │   └── utils/              # Utility functions
-│   └── package.json
-└── README.md
-```
-
-## Getting Started
-
-### Prerequisites
-- Node.js (v14 or later)
+### Backend
+- NestJS (Node.js)
+- TypeORM
 - PostgreSQL
+- JWT para autenticación
 
-### Installation
+### Infraestructura
+- Docker
+- Nginx
+- GitHub Actions para CI/CD
+- AWS/VPS para producción
 
-1. Clone the repository
-   ```bash
-   git clone https://github.com/gustavo180591/gym.git
-   cd gym
-   ```
+## 🚀 Empezando
 
-2. Install backend dependencies
-   ```bash
-   cd backend
-   npm install
-   ```
+### Requisitos
+- Node.js 18+
+- Docker y Docker Compose
+- pnpm (recomendado)
 
-3. Configure the environment variables
-   ```bash
-   # Create a .env file in the backend directory
-   DATABASE_URL="postgresql://postgres:postgres@localhost:5432/gym_management?schema=public"
-   PORT=5000
-   JWT_SECRET="your_jwt_secret_key"
-   JWT_REFRESH_SECRET="your_jwt_refresh_secret_key"
-   JWT_EXPIRES_IN="1h"
-   JWT_REFRESH_EXPIRES_IN="7d"
-   ```
+### Instalación
 
-4. Run database migrations
-   ```bash
-   npx prisma migrate dev
-   ```
+1. Clonar el repositorio
+```bash
+git clone https://github.com/tu-usuario/gym-management.git
+cd gym-management
+```
 
-5. Install frontend dependencies
-   ```bash
-   cd ../frontend
-   npm install
-   ```
+2. Configurar variables de entorno
+```bash
+cp .env.example .env
+# Editar las variables según sea necesario
+```
 
-### Running the Application
+3. Iniciar con Docker
+```bash
+docker-compose up -d
+```
 
-1. Start the backend server
-   ```bash
-   cd backend
-   npm run dev
-   ```
+4. Acceder a la aplicación
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:4000
+- PGAdmin: http://localhost:5050
 
-2. Start the frontend development server
-   ```bash
-   cd frontend
-   npm run dev
-   ```
+## 📄 Licencia
 
-3. Access the application at http://localhost:3000
-
-## API Endpoints
-
-### Authentication
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Authenticate a user
-- `POST /api/auth/refresh` - Refresh authentication token
-- `POST /api/auth/logout` - Logout a user
-
-### Users
-- `GET /api/users/me` - Get current user profile
-- `GET /api/users` - List all users (admin only)
-- `GET /api/users/:id` - Get user by ID (admin only)
-- `PUT /api/users/:id` - Update user (admin only)
-- `DELETE /api/users/:id` - Delete user (admin only)
-
-### Classes
-- `GET /api/classes` - List all classes
-- `GET /api/classes/:id` - Get class by ID
-- `POST /api/classes` - Create a new class (admin/teacher only)
-- `PUT /api/classes/:id` - Update a class (admin/teacher only)
-- `DELETE /api/classes/:id` - Delete a class (admin only)
-- `POST /api/classes/reserve` - Reserve a spot in a class
-- `DELETE /api/classes/reservation/:id` - Cancel a reservation
-
-## License
-
-MIT 
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
